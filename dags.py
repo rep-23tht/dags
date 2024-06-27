@@ -39,7 +39,7 @@ job_config = yaml.safe_load(job_config_str)
 # Define the KubernetesPodOperator
 run_eks_job = KubernetesPodOperator(
     namespace='airflow',
-    image="{image_name}:yhth788",  # Replace with the actual image if different
+    image="{image_name}:{new_tag}",  # Replace with the actual image if different
     cmds=job_config['spec']['template']['spec']['containers'][0]['command'],
     name=job_config['metadata']['name'],
     task_id="hello_world_job",
