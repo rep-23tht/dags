@@ -1,5 +1,4 @@
 import os
-import sys
 
 def update_image_tag(dag_file_path, image_name, new_tag):
     with open(dag_file_path, 'r') as file:
@@ -7,7 +6,7 @@ def update_image_tag(dag_file_path, image_name, new_tag):
 
     with open(dag_file_path, 'w') as file:
         for line in lines:
-            if f'image="{image_name}:' in line:
+            if 'image=' in line:
                 line = line.split('image="')[0] + f'image="{image_name}:{new_tag}",\n'
             file.write(line)
 
