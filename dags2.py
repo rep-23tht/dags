@@ -11,7 +11,7 @@ default_args = {
 }
 
 dag = DAG(
-    'eks_job_dag',
+    'eks_job_dag_2',
     default_args=default_args,
     description='A simple DAG to run a job on EKS',
     schedule_interval='@daily',
