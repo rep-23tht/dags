@@ -48,4 +48,15 @@ run_eks_job = KubernetesPodOperator(
     dag=dag,
 )
 
+run_eks_job = KubernetesPodOperator(
+    namespace='airflow',
+    image="yyttg.nginx:7777",
+    cmds=job_config['spec']['template']['spec']['containers'][0]['command'],
+    name=job_config['metadata']['name'],
+    task_id="hello_world_job",
+    get_logs=True,
+    is_delete_operator_pod=False,
+    dag=dag,
+)
+
 run_eks_job
