@@ -39,7 +39,7 @@ job_config = yaml.safe_load(job_config_str)
 # Define the KubernetesPodOperator
 run_eks_job = KubernetesPodOperator(
     namespace='airflow',
-    image="yyttg.nginx:555555",
+    image="yyttg.nginx:666666",
     cmds=job_config['spec']['template']['spec']['containers'][0]['command'],
     name=job_config['metadata']['name'],
     task_id="hello_world_job",
